@@ -1,5 +1,5 @@
 'use strict';
-const baseUrl = 'http://localhost:4010/';
+const baseURL = 'http://localhost:4010/';
 
 /**
  * Tests
@@ -9,13 +9,13 @@ describe('test_access_settings_activity_get', () => {
   const queryParams = {
     limit: 1,
   };
-  request.qs = queryParams;
+  request.params = queryParams;
   request.method = 'GET';
   request.url = '/v3/access_settings/activity';
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -46,7 +46,7 @@ describe('test_access_settings_whitelist_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -71,7 +71,7 @@ describe('test_access_settings_whitelist_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -88,7 +88,7 @@ describe('test_access_settings_whitelist_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -105,7 +105,7 @@ describe('test_access_settings_whitelist__rule_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -122,7 +122,7 @@ describe('test_access_settings_whitelist__rule_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -145,7 +145,7 @@ describe('test_alerts_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -162,7 +162,7 @@ describe('test_alerts_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -183,7 +183,7 @@ describe('test_alerts__alert_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -200,7 +200,7 @@ describe('test_alerts__alert_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -217,7 +217,7 @@ describe('test_alerts__alert_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -244,7 +244,7 @@ describe('test_api_keys_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -265,7 +265,7 @@ describe('test_api_keys_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -290,7 +290,7 @@ describe('test_api_keys__api_key_id__put', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -311,7 +311,7 @@ describe('test_api_keys__api_key_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -328,7 +328,7 @@ describe('test_api_keys__api_key_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -345,7 +345,7 @@ describe('test_api_keys__api_key_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -368,7 +368,7 @@ describe('test_asm_groups_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -389,7 +389,7 @@ describe('test_asm_groups_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -406,7 +406,7 @@ describe('test_asm_groups__group_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -429,7 +429,7 @@ describe('test_asm_groups__group_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -446,7 +446,7 @@ describe('test_asm_groups__group_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -470,7 +470,7 @@ describe('test_asm_groups__group_id__suppressions_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -487,7 +487,7 @@ describe('test_asm_groups__group_id__suppressions_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -512,7 +512,7 @@ describe('test_asm_groups__group_id__suppressions_search_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -529,7 +529,7 @@ describe('test_asm_groups__group_id__suppressions__email__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -546,7 +546,7 @@ describe('test_asm_suppressions_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -570,7 +570,7 @@ describe('test_asm_suppressions_global_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -587,7 +587,7 @@ describe('test_asm_suppressions_global__email__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -604,7 +604,7 @@ describe('test_asm_suppressions_global__email__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -621,7 +621,7 @@ describe('test_asm_suppressions__email__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -647,7 +647,7 @@ describe('test_browsers_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -685,7 +685,7 @@ describe('test_campaigns_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -707,7 +707,7 @@ describe('test_campaigns_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -734,7 +734,7 @@ describe('test_campaigns__campaign_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -751,7 +751,7 @@ describe('test_campaigns__campaign_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -768,7 +768,7 @@ describe('test_campaigns__campaign_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -785,7 +785,7 @@ describe('test_campaigns__campaign_id__schedules_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -806,7 +806,7 @@ describe('test_campaigns__campaign_id__schedules_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -823,7 +823,7 @@ describe('test_campaigns__campaign_id__schedules_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -844,7 +844,7 @@ describe('test_campaigns__campaign_id__schedules_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -861,7 +861,7 @@ describe('test_campaigns__campaign_id__schedules_now_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -882,7 +882,7 @@ describe('test_campaigns__campaign_id__schedules_test_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -905,7 +905,7 @@ describe('test_categories_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -931,7 +931,7 @@ describe('test_categories_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -958,7 +958,7 @@ describe('test_categories_stats_sums_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -981,7 +981,7 @@ describe('test_clients_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1004,7 +1004,7 @@ describe('test_clients__client_type__stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1026,7 +1026,7 @@ describe('test_contactdb_custom_fields_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -1043,7 +1043,7 @@ describe('test_contactdb_custom_fields_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1060,7 +1060,7 @@ describe('test_contactdb_custom_fields__custom_field_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 202);
     return sgClient
       .request(request)
@@ -1077,7 +1077,7 @@ describe('test_contactdb_custom_fields__custom_field_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1098,7 +1098,7 @@ describe('test_contactdb_lists_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -1122,7 +1122,7 @@ describe('test_contactdb_lists_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -1139,7 +1139,7 @@ describe('test_contactdb_lists_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1160,7 +1160,7 @@ describe('test_contactdb_lists__list_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 202);
     return sgClient
       .request(request)
@@ -1185,7 +1185,7 @@ describe('test_contactdb_lists__list_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1206,7 +1206,7 @@ describe('test_contactdb_lists__list_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1228,7 +1228,7 @@ describe('test_contactdb_lists__list_id__recipients_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -1251,7 +1251,7 @@ describe('test_contactdb_lists__list_id__recipients_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1268,7 +1268,7 @@ describe('test_contactdb_lists__list_id__recipients__recipient_id__post', () => 
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -1290,7 +1290,7 @@ describe('test_contactdb_lists__list_id__recipients__recipient_id__delete', () =
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -1322,7 +1322,7 @@ describe('test_contactdb_recipients_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -1344,7 +1344,7 @@ describe('test_contactdb_recipients_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1366,7 +1366,7 @@ describe('test_contactdb_recipients_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1391,7 +1391,7 @@ describe('test_contactdb_recipients_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -1408,7 +1408,7 @@ describe('test_contactdb_recipients_billable_count_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1425,7 +1425,7 @@ describe('test_contactdb_recipients_count_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1446,7 +1446,7 @@ describe('test_contactdb_recipients_search_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1463,7 +1463,7 @@ describe('test_contactdb_recipients__recipient_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -1480,7 +1480,7 @@ describe('test_contactdb_recipients__recipient_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1497,7 +1497,7 @@ describe('test_contactdb_recipients__recipient_id__lists_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1514,7 +1514,7 @@ describe('test_contactdb_reserved_fields_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1556,7 +1556,7 @@ describe('test_contactdb_segments_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1573,7 +1573,7 @@ describe('test_contactdb_segments_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1594,7 +1594,7 @@ describe('test_contactdb_segments__segment_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -1628,7 +1628,7 @@ describe('test_contactdb_segments__segment_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1649,7 +1649,7 @@ describe('test_contactdb_segments__segment_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1671,7 +1671,7 @@ describe('test_contactdb_segments__segment_id__recipients_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1688,7 +1688,7 @@ describe('test_contactdb_status_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1713,7 +1713,7 @@ describe('test_devices_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1739,7 +1739,7 @@ describe('test_geo_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1766,7 +1766,7 @@ describe('test_ips_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -1792,7 +1792,7 @@ describe('test_ips_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1809,7 +1809,7 @@ describe('test_ips_assigned_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1830,7 +1830,7 @@ describe('test_ips_pools_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1847,7 +1847,7 @@ describe('test_ips_pools_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1868,7 +1868,7 @@ describe('test_ips_pools__pool_name__put', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1885,7 +1885,7 @@ describe('test_ips_pools__pool_name__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -1902,7 +1902,7 @@ describe('test_ips_pools__pool_name__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1923,7 +1923,7 @@ describe('test_ips_pools__pool_name__ips_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -1940,7 +1940,7 @@ describe('test_ips_pools__pool_name__ips__ip__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -1957,7 +1957,7 @@ describe('test_ips_remaining_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1978,7 +1978,7 @@ describe('test_ips_warmup_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -1995,7 +1995,7 @@ describe('test_ips_warmup_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2012,7 +2012,7 @@ describe('test_ips_warmup__ip_address__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -2029,7 +2029,7 @@ describe('test_ips_warmup__ip_address__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2046,7 +2046,7 @@ describe('test_ips__ip_address__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2063,7 +2063,7 @@ describe('test_mail_batch_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -2080,7 +2080,7 @@ describe('test_mail_batch__batch_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2126,7 +2126,7 @@ describe('test_mail_send_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 202);
     return sgClient
       .request(request)
@@ -2148,7 +2148,7 @@ describe('test_mail_settings_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2173,7 +2173,7 @@ describe('test_mail_settings_address_whitelist_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2190,7 +2190,7 @@ describe('test_mail_settings_address_whitelist_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2212,7 +2212,7 @@ describe('test_mail_settings_bcc_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2229,7 +2229,7 @@ describe('test_mail_settings_bcc_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2252,7 +2252,7 @@ describe('test_mail_settings_bounce_purge_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2269,7 +2269,7 @@ describe('test_mail_settings_bounce_purge_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2292,7 +2292,7 @@ describe('test_mail_settings_footer_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2309,7 +2309,7 @@ describe('test_mail_settings_footer_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2331,7 +2331,7 @@ describe('test_mail_settings_forward_bounce_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2348,7 +2348,7 @@ describe('test_mail_settings_forward_bounce_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2370,7 +2370,7 @@ describe('test_mail_settings_forward_spam_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2387,7 +2387,7 @@ describe('test_mail_settings_forward_spam_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2408,7 +2408,7 @@ describe('test_mail_settings_plain_content_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2425,7 +2425,7 @@ describe('test_mail_settings_plain_content_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2448,7 +2448,7 @@ describe('test_mail_settings_spam_check_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2465,7 +2465,7 @@ describe('test_mail_settings_spam_check_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2487,7 +2487,7 @@ describe('test_mail_settings_template_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2504,7 +2504,7 @@ describe('test_mail_settings_template_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2530,7 +2530,7 @@ describe('test_mailbox_providers_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2552,7 +2552,7 @@ describe('test_partner_settings_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2575,7 +2575,7 @@ describe('test_partner_settings_new_relic_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2592,7 +2592,7 @@ describe('test_partner_settings_new_relic_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2609,7 +2609,7 @@ describe('test_scopes_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2631,7 +2631,7 @@ describe('test_scopes_requests_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2648,7 +2648,7 @@ describe('test_scopes_requests__request_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -2665,7 +2665,7 @@ describe('test_scopes_requests__request_id__approve_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2700,7 +2700,7 @@ describe('test_senders_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -2717,7 +2717,7 @@ describe('test_senders_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2734,7 +2734,7 @@ describe('test_senders__sender_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2751,7 +2751,7 @@ describe('test_senders__sender_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -2786,7 +2786,7 @@ describe('test_senders__sender_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2803,7 +2803,7 @@ describe('test_senders__sender_id__resend_verification_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -2828,7 +2828,7 @@ describe('test_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2855,7 +2855,7 @@ describe('test_subusers_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2878,7 +2878,7 @@ describe('test_subusers_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2899,7 +2899,7 @@ describe('test_subusers_reputations_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2925,7 +2925,7 @@ describe('test_subusers_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2951,7 +2951,7 @@ describe('test_subusers_stats_monthly_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2978,7 +2978,7 @@ describe('test_subusers_stats_sums_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -2995,7 +2995,7 @@ describe('test_subusers__subuser_name__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3016,7 +3016,7 @@ describe('test_subusers__subuser_name__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3037,7 +3037,7 @@ describe('test_subusers__subuser_name__ips_put', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3059,7 +3059,7 @@ describe('test_subusers__subuser_name__monitor_put', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3081,7 +3081,7 @@ describe('test_subusers__subuser_name__monitor_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3098,7 +3098,7 @@ describe('test_subusers__subuser_name__monitor_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3115,7 +3115,7 @@ describe('test_subusers__subuser_name__monitor_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3140,7 +3140,7 @@ describe('test_subusers__subuser_name__stats_monthly_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3165,7 +3165,7 @@ describe('test_suppression_blocks_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3189,7 +3189,7 @@ describe('test_suppression_blocks_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3206,7 +3206,7 @@ describe('test_suppression_blocks__email__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3223,7 +3223,7 @@ describe('test_suppression_blocks__email__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3248,7 +3248,7 @@ describe('test_suppression_bounces_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3270,7 +3270,7 @@ describe('test_suppression_bounces_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3291,7 +3291,7 @@ describe('test_suppression_bounces__email__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3308,7 +3308,7 @@ describe('test_suppression_bounces__email__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3333,7 +3333,7 @@ describe('test_suppression_invalid_emails_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3357,7 +3357,7 @@ describe('test_suppression_invalid_emails_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3374,7 +3374,7 @@ describe('test_suppression_invalid_emails__email__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3391,7 +3391,7 @@ describe('test_suppression_invalid_emails__email__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3416,7 +3416,7 @@ describe('test_suppression_spam_reports_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3440,7 +3440,7 @@ describe('test_suppression_spam_reports_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3457,7 +3457,7 @@ describe('test_suppression_spam_reports__email__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3474,7 +3474,7 @@ describe('test_suppression_spam_reports__email__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3498,7 +3498,7 @@ describe('test_suppression_unsubscribes_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3524,7 +3524,7 @@ describe('test_teammates_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -3546,7 +3546,7 @@ describe('test_teammates_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3563,7 +3563,7 @@ describe('test_teammates_pending_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3580,7 +3580,7 @@ describe('test_teammates_pending__token__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3597,7 +3597,7 @@ describe('test_teammates_pending__token__resend_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3614,7 +3614,7 @@ describe('test_teammates__username__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3639,7 +3639,7 @@ describe('test_teammates__username__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3656,7 +3656,7 @@ describe('test_teammates__username__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3677,7 +3677,7 @@ describe('test_templates_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -3694,7 +3694,7 @@ describe('test_templates_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3711,7 +3711,7 @@ describe('test_templates__template_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3732,7 +3732,7 @@ describe('test_templates__template_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3749,7 +3749,7 @@ describe('test_templates__template_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3775,7 +3775,7 @@ describe('test_templates__template_id__versions_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -3792,7 +3792,7 @@ describe('test_templates__template_id__versions__version_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -3817,7 +3817,7 @@ describe('test_templates__template_id__versions__version_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3834,7 +3834,7 @@ describe('test_templates__template_id__versions__version_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3851,7 +3851,7 @@ describe('test_templates__template_id__versions__version_id__activate_post', () 
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3873,7 +3873,7 @@ describe('test_tracking_settings_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3894,7 +3894,7 @@ describe('test_tracking_settings_click_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3911,7 +3911,7 @@ describe('test_tracking_settings_click_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3937,7 +3937,7 @@ describe('test_tracking_settings_google_analytics_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3954,7 +3954,7 @@ describe('test_tracking_settings_google_analytics_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3975,7 +3975,7 @@ describe('test_tracking_settings_open_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -3992,7 +3992,7 @@ describe('test_tracking_settings_open_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4018,7 +4018,7 @@ describe('test_tracking_settings_subscription_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4035,7 +4035,7 @@ describe('test_tracking_settings_subscription_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4052,7 +4052,7 @@ describe('test_user_account_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4069,7 +4069,7 @@ describe('test_user_credits_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4090,7 +4090,7 @@ describe('test_user_email_put', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4107,7 +4107,7 @@ describe('test_user_email_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4129,7 +4129,7 @@ describe('test_user_password_put', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4152,7 +4152,7 @@ describe('test_user_profile_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4169,7 +4169,7 @@ describe('test_user_profile_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4191,7 +4191,7 @@ describe('test_user_scheduled_sends_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -4208,7 +4208,7 @@ describe('test_user_scheduled_sends_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4225,7 +4225,7 @@ describe('test_user_scheduled_sends__batch_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -4246,7 +4246,7 @@ describe('test_user_scheduled_sends__batch_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -4263,7 +4263,7 @@ describe('test_user_scheduled_sends__batch_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4285,7 +4285,7 @@ describe('test_user_settings_enforced_tls_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4302,7 +4302,7 @@ describe('test_user_settings_enforced_tls_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4323,7 +4323,7 @@ describe('test_user_username_put', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4340,7 +4340,7 @@ describe('test_user_username_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4373,7 +4373,7 @@ describe('test_user_webhooks_event_settings_patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4390,7 +4390,7 @@ describe('test_user_webhooks_event_settings_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4411,7 +4411,7 @@ describe('test_user_webhooks_event_test_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -4435,7 +4435,7 @@ describe('test_user_webhooks_parse_settings_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -4452,7 +4452,7 @@ describe('test_user_webhooks_parse_settings_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4469,7 +4469,7 @@ describe('test_user_webhooks_parse_settings__hostname__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -4492,7 +4492,7 @@ describe('test_user_webhooks_parse_settings__hostname__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4509,7 +4509,7 @@ describe('test_user_webhooks_parse_settings__hostname__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4534,7 +4534,7 @@ describe('test_user_webhooks_parse_stats_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4564,7 +4564,7 @@ describe('test_whitelabel_domains_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -4589,7 +4589,7 @@ describe('test_whitelabel_domains_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4606,7 +4606,7 @@ describe('test_whitelabel_domains_default_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4623,7 +4623,7 @@ describe('test_whitelabel_domains_subuser_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -4640,7 +4640,7 @@ describe('test_whitelabel_domains_subuser_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4657,7 +4657,7 @@ describe('test_whitelabel_domains__domain_id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -4679,7 +4679,7 @@ describe('test_whitelabel_domains__domain_id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4696,7 +4696,7 @@ describe('test_whitelabel_domains__domain_id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4717,7 +4717,7 @@ describe('test_whitelabel_domains__domain_id__subuser_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -4738,7 +4738,7 @@ describe('test_whitelabel_domains__id__ips_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4755,7 +4755,7 @@ describe('test_whitelabel_domains__id__ips__ip__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4772,7 +4772,7 @@ describe('test_whitelabel_domains__id__validate_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4795,7 +4795,7 @@ describe('test_whitelabel_ips_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -4818,7 +4818,7 @@ describe('test_whitelabel_ips_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4835,7 +4835,7 @@ describe('test_whitelabel_ips__id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -4852,7 +4852,7 @@ describe('test_whitelabel_ips__id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4869,7 +4869,7 @@ describe('test_whitelabel_ips__id__validate_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4897,7 +4897,7 @@ describe('test_whitelabel_links_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 201);
     return sgClient
       .request(request)
@@ -4918,7 +4918,7 @@ describe('test_whitelabel_links_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4939,7 +4939,7 @@ describe('test_whitelabel_links_default_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4960,7 +4960,7 @@ describe('test_whitelabel_links_subuser_delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -4981,7 +4981,7 @@ describe('test_whitelabel_links_subuser_get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -4998,7 +4998,7 @@ describe('test_whitelabel_links__id__delete', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 204);
     return sgClient
       .request(request)
@@ -5019,7 +5019,7 @@ describe('test_whitelabel_links__id__patch', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -5036,7 +5036,7 @@ describe('test_whitelabel_links__id__get', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -5053,7 +5053,7 @@ describe('test_whitelabel_links__id__validate_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)
@@ -5074,7 +5074,7 @@ describe('test_whitelabel_links__link_id__subuser_post', () => {
   it('should have the correct response code', () => {
     const sgClient = require('./client');
     sgClient.setApiKey('SendGrid API Key');
-    sgClient.setDefaultRequest('baseUrl', baseUrl);
+    sgClient.setDefaultRequest('baseURL', baseURL);
     sgClient.setDefaultHeader('X-Mock', 200);
     return sgClient
       .request(request)

@@ -189,7 +189,7 @@ class MailService {
       const request = {
         method: 'POST',
         url: '/v3/mail/send',
-        body,
+        data: body,
       };
 
       //Send
