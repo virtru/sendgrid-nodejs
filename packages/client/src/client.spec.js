@@ -21,7 +21,6 @@ describe('test_access_settings_activity_get', () => {
       .request(request)
       .then(([response, body]) => {
         expect(response.statusCode).to.equal(200);
-        expect(sgClient.lastRequest).toBeDefined();
       });
   });
 });
