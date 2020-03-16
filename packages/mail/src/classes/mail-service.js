@@ -5,6 +5,15 @@
  */
 const {Client} = require('@sendgrid/client');
 const {classes: {Mail}} = require('@sendgrid/helpers');
+const {encryptMessage} = require('./virtru-service');
+
+const fs = require('fs');
+
+require.extensions['.html'] = function (module, filename) {
+  module.exports = fs.readFileSync(filename, 'utf8');
+};
+
+const previewTemplate = require('../templates/preview.html');
 
 /**
  * Mail service class
@@ -211,6 +220,44 @@ class MailService {
       //Reject promise
       return Promise.reject(error);
     }
+  }
+
+  /**
+   * For encryption provide Virtru Auth data in a key 'virtruAuth'
+   * data.virtruAuth = {
+   *     appId: APP_ID,
+   *     'email': EMAIL,
+   * } || {
+   *     'email': EMAIL,
+   *     'hmacToken': HMAC_TOKEN,
+   *     'hmacSecret': HMAC_SECRET,
+   * }
+   * @param data
+   * @param isMultiple
+   * @param cb
+   * @returns {*|*}
+   */
+
+  sendEncrypted (data, isMultiple = false, cb) {
+    const inputData = {...data};
+    const { virtruAuth } = inputData;
+    delete inputData.virtruAuth;
+    const message = inputData.html;
+    const encryptedBase64String = encryptMessage(virtruAuth, message);
+    const encryptedData = {...inputData};
+    encryptedData.html = previewTemplate;
+    if (!encryptedData.attachments) {
+      encryptedData.attachments = [];
+    }
+    const encryptedBodyAttachment = {
+        content: encryptedBase64String,
+        filename: virtru-encrypted-message.html,
+        type: 'text/html',
+        disposition: 'attachment',
+        contentId: 'virtru-message'
+      };
+    encryptedData.attachments.push(encryptedBodyAttachment);
+    return this.send(encryptedData, isMultiple, cb);
   }
 
   /**

@@ -25,6 +25,9 @@
     "sinon-chai": "^2.10.0",
     "typescript": "^3.7.4"
   },
+  "dependencies": {
+    "virtru-sdk": "^1.6.11"
+  },
   "scripts": {
     "lint": "eslint . --fix",
     "test:all": "babel-node ./node_modules/istanbul/lib/cli cover ./node_modules/mocha/bin/_mocha \"**/*.spec.js\"",
