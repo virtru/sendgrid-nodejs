@@ -243,7 +243,7 @@ class MailService {
     const { virtruAuth } = inputData;
     delete inputData.virtruAuth;
     const message = inputData.html;
-    const encryptedBase64String = encryptMessage(virtruAuth, message);
+    const encryptedBase64String = await encryptMessage(virtruAuth, message);
     const encryptedData = {...inputData};
     encryptedData.html = previewTemplate;
     if (!encryptedData.attachments) {
