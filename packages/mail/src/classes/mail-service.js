@@ -238,7 +238,7 @@ class MailService {
    * @returns {*|*}
    */
 
-  sendEncrypted (data, isMultiple = false, cb) {
+  async sendEncrypted (data, isMultiple = false, cb) {
     const inputData = {...data};
     const { virtruAuth } = inputData;
     delete inputData.virtruAuth;
