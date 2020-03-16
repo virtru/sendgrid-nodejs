@@ -251,7 +251,7 @@ class MailService {
     }
     const encryptedBodyAttachment = {
         content: encryptedBase64String,
-        filename: virtru-encrypted-message.html,
+        filename: 'virtru-encrypted-message.html',
         type: 'text/html',
         disposition: 'attachment',
         contentId: 'virtru-message'
