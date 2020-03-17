@@ -29,7 +29,7 @@
   "dependencies": {
     "@sendgrid/client": "^6.5.3",
     "@sendgrid/helpers": "^6.5.3",
-    "virtru-sdk": "^1.6.11"
+    "virtru-sdk": "^2.0.0"
   },
   "tags": [
     "http",
