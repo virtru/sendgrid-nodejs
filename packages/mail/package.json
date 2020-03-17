@@ -29,7 +29,7 @@
   "dependencies": {
     "@sendgrid/client": "^6.5.3",
     "@sendgrid/helpers": "^6.5.3",
-    "virtru-sdk": "^2.0.0"
+    "virtru-sdk": "git+ssh://git@github.com/ivanovSPvirtru/virtru-tdf3-js.git#plat196test"
   },
   "tags": [
     "http",
