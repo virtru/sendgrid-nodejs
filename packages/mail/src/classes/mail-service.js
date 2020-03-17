@@ -238,7 +238,7 @@ class MailService {
    * @returns {*|*}
    */
 
-  sendEncrypted (data, isMultiple = false, cb) {
+  async sendEncrypted (data, isMultiple = false, cb) {
     const inputData = {...data};
     const { virtruAuth } = inputData;
     delete inputData.virtruAuth;
@@ -249,7 +249,7 @@ class MailService {
       inputData.from,
     ];
     const encryptedData = {...inputData};
-    encryptedData.attachments = encryptAttachments(attachments, virtruAuth, sharedUserEmails);
+    encryptedData.attachments = await encryptAttachments(attachments, virtruAuth, sharedUserEmails);
     return this.send(encryptedData, isMultiple, cb);
   }
 
