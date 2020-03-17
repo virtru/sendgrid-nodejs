@@ -5,7 +5,7 @@
  */
 const {Client} = require('@sendgrid/client');
 const {classes: {Mail}} = require('@sendgrid/helpers');
-const {encryptMessage} = require('./virtru-service');
+const {encryptAttachment} = require('./virtru-service');
 
 const fs = require('fs');
 
@@ -238,25 +238,30 @@ class MailService {
    * @returns {*|*}
    */
 
-  async sendEncrypted (data, isMultiple = false, cb) {
+  sendEncrypted (data, isMultiple = false, cb) {
     const inputData = {...data};
     const { virtruAuth } = inputData;
     delete inputData.virtruAuth;
-    const message = inputData.html;
-    const encryptedBase64String = await encryptMessage(virtruAuth, message);
+    const { attachments } = inputData;
+    delete inputData.attachments;
+    const sharedUserEmails = [
+      inputData.to,
+      inputData.from,
+    ];
     const encryptedData = {...inputData};
-    encryptedData.html = previewTemplate;
-    if (!encryptedData.attachments) {
-      encryptedData.attachments = [];
-    }
-    const encryptedBodyAttachment = {
+    encryptedData.attachments = [];
+    attachments.forEach(async (attachment) => {
+      const attachmentBuffer = Buffer.from(attachment.content, 'base64');
+      const encryptedBase64String = await encryptAttachment(virtruAuth, attachmentBuffer, sharedUserEmails);
+      const encryptedBodyAttachment = {
         content: encryptedBase64String,
-        filename: 'virtru-encrypted-message.html',
+        filename: `${attachment.filename}.tdf.html`,
         type: 'text/html',
         disposition: 'attachment',
-        contentId: 'virtru-message'
+        contentId: `${attachment.contentId}_tdf_html`
       };
-    encryptedData.attachments.push(encryptedBodyAttachment);
+      encryptedData.attachments.push(encryptedBodyAttachment);
+    });
     return this.send(encryptedData, isMultiple, cb);
   }
 

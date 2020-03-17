@@ -1,11 +1,12 @@
 const Virtru = require('virtru-sdk');
 
-const encryptMessage = async (authData, message) => {
+const encryptAttachment = async (authData, attachmentBuffer, recipients) => {
     const client = new Virtru.Client(authData);
     const policy = new Virtru.PolicyBuilder()
         .build();
     const encryptParams = new Virtru.EncryptParamsBuilder()
-        .withStringSource(message)
+        .withBufferSource(attachmentBuffer)
+        .withUsersWithAccess(recipients)
         .withPolicy(policy)
         .build();
     const ct = await client.encrypt(encryptParams);
@@ -14,5 +15,5 @@ const encryptMessage = async (authData, message) => {
 };
 
 module.exports = {
-    encryptMessage,
+    encryptAttachment,
 };
