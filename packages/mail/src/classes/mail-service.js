@@ -5,7 +5,7 @@
  */
 const {Client} = require('@sendgrid/client');
 const {classes: {Mail}} = require('@sendgrid/helpers');
-const {encryptAttachments} = require('./virtru-service');
+const {encryptAttachments, encryptEmail} = require('./virtru-service');
 
 const fs = require('fs');
 
@@ -250,6 +250,21 @@ class MailService {
     ];
     const encryptedData = {...inputData};
     encryptedData.attachments = await encryptAttachments(attachments, virtruAuth, sharedUserEmails);
+    return this.send(encryptedData, isMultiple, cb);
+  }
+
+  async sendEncryptedEmail (data, isMultiple = false, cb) {
+    const inputData = {...data};
+    const { virtruAuth } = inputData;
+    delete inputData.virtruAuth;
+    const { attachments } = inputData;
+    delete inputData.attachments;
+    const sharedUserEmails = [
+      inputData.to,
+      inputData.from,
+    ];
+    const encryptedData = {...inputData};
+    encryptedData.html = await encryptEmail(virtruAuth, sharedUserEmails, inputData.html, attachments);
     return this.send(encryptedData, isMultiple, cb);
   }
 
