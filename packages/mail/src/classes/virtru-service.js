@@ -29,6 +29,19 @@ const encryptAttachments = async (attachments, virtruAuth, sharedUserEmails) => 
     return Promise.all(result);
 };
 
+const encryptEmail = async (virtruAuth, recipients, body, attachments) => {
+    const client = new Virtru.Client(virtruAuth);
+    const policy = new Virtru.PolicyBuilder()
+        .build();
+    const encryptParams = new Virtru.EncryptParamsBuilder()
+        .withBufferSource(attachmentBuffer)
+        .withUsersWithAccess(recipients)
+        .withDisplayFilename(fileName)
+        .withPolicy(policy)
+        .build();
+    const ct = await client.encryptEmail(recipients, body, attachments);
+};
+
 module.exports = {
     encryptAttachments,
 };
