@@ -255,16 +255,15 @@ class MailService {
 
   async sendEncryptedEmail (data, isMultiple = false, cb) {
     const inputData = {...data};
-    const { virtruAuth } = inputData;
-    delete inputData.virtruAuth;
-    const { attachments } = inputData;
+    const { attachments, owner, subject } = inputData;
     delete inputData.attachments;
+    delete inputData.owner;
     const sharedUserEmails = [
       inputData.to,
       inputData.from,
     ];
     const encryptedData = {...inputData};
-    encryptedData.html = await encryptEmail(virtruAuth, sharedUserEmails, inputData.html, attachments);
+    encryptedData.html = await encryptEmail(owner, subject, sharedUserEmails, inputData.html, attachments);
     return this.send(encryptedData, isMultiple, cb);
   }
 
