@@ -78,13 +78,13 @@ const encryptEmail = async (owner, subject, recipients, message, attachments) =>
     // });
 
     // return Promise.all(attachmentPromises).then(() => {
-    const result = secureService.makeMessage(
+    const result = await secureService.makeMessage(
         message,
         policyOptions,
         connectOptions
     );
 
-    const template = async templateService.fetch(templateUri);
+    const template = await templateService.fetch(templateUri);
 
     return buildSecureWrapper(result, policyOptions, template);
     // });
