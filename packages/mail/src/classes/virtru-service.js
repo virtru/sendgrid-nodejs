@@ -56,7 +56,7 @@ const encryptEmail = async (owner, subject, recipients, message, attachments) =>
         apiUrl: "https://api-develop01.develop.virtru.com",
         remoteContentBaseUrl: "https://secure-develop01.develop.virtru.com/start/",
         cdnUrl: "https://cdn-develop01.develop.virtru.com",
-        userId: "alexey.v.veprev@gmail.com",
+        userId: "narvolo.redl@gmail.com",
         appIdDomains: {
             'accounts-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
             'acm-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
