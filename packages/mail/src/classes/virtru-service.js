@@ -85,6 +85,6 @@ function getChipContent() {
 }
 
 module.exports = {
-    encryptAttachments,
+    // encryptAttachments,
     encryptEmail,
 };
