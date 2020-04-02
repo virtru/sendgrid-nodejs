@@ -1,5 +1,8 @@
-// const Virtru = require('virtru-sdk');
+const { config } = require('www-cfg');
+
 const SecureService = require('secure-lib').SecureService;
+
+const base64 = require('virtru-base64');
 
 const TemplateService = require('client-common-utils').templates;
 
