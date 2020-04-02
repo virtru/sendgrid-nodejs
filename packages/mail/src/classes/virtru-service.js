@@ -1,6 +1,10 @@
 // const Virtru = require('virtru-sdk');
 const SecureService = require('secure-lib').SecureService;
 
+const TemplateService = require('client-common-utils').templates;
+
+const templateService = TemplateService.create();
+
 const secureService = SecureService.setup();
 
 // const encryptAttachment = async (attachmentBuffer, fileName, authData, recipients) => {
@@ -41,6 +45,24 @@ const encryptEmail = async (owner, subject, recipients, message, attachments) =>
         attachments
     );
 
+    const connectOptions = {
+        clientString: "secure-reader:6.48.0",
+        mainAcmUrl: "https://acm-develop01.develop.virtru.com",
+        eventsUrl: "https://events-develop01.develop.virtru.com",
+        accountsUrl: "https://accounts-develop01.develop.virtru.com",
+        apiUrl: "https://api-develop01.develop.virtru.com",
+        remoteContentBaseUrl: "https://secure-develop01.develop.virtru.com/start/",
+        cdnUrl: "https://cdn-develop01.develop.virtru.com",
+        userId: "alexey.v.veprev@gmail.com",
+        appIdDomains: {
+            'accounts-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
+            'acm-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
+            'events-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
+            'api-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
+        }
+    };
+    const templateUri = `${connectOptions.cdnUrl}/templates/virtru/base.template`;
+
     // attachments.forEach((rawFileAttachment) => {
     //     const attachmentPromise = secureService.makeFile(
     //
@@ -56,11 +78,64 @@ const encryptEmail = async (owner, subject, recipients, message, attachments) =>
     // });
 
     // return Promise.all(attachmentPromises).then(() => {
-    return secureService.makeMessage(
+    const result = secureService.makeMessage(
         message,
-        policyOptions
+        policyOptions,
+        connectOptions
     );
+
+    const template = async templateService.fetch(templateUri);
+
+    return buildSecureWrapper(result, policyOptions, template);
     // });
+};
+
+
+
+function buildSecureWrapper(
+    result,
+    policyOptions,
+    templateHtml,
+) {
+    const metadata = {
+        version: '1.4.0',
+        messageId: result.policyUuid,
+        remoteContentLink: result.remoteContentLink,
+        'user.platform': config.client,
+        'user.platform.version': config.version,
+    };
+
+    const templateData = {
+        secureMessage: base64.encode(result.tdf.asXml()),
+
+        // TODO: messageId will need to be calculated once we support chains here
+        messageId: 0,
+        previousMessages: undefined,
+        messageUUID: result.policyUuid,
+        metadata: base64.encode(JSON.stringify(metadata)),
+        microTdfLink: result.remoteContentLink,
+        senderName: policyOptions.ownerDisplayName
+            ? policyOptions.ownerDisplayName
+            : policyOptions.owner,
+        senderAddress: policyOptions.owner,
+        mobileLink: `virtru://message?uuid=${result.policyUuid}`,
+        welcomeMessage: policyOptions.welcomeMessage
+            ? function () {
+                return policyOptions.welcomeMessage;
+            }
+            : undefined,
+        emailSubject: policyOptions.displayName,
+    };
+
+    // Work-around for making double-braces into triple-braces.
+    // This makes Mustache unescape URL characters in the Unlock Button Link.
+    // This seems needed to prevent Yahoo from not printing the href.
+    // See JIRA Tickets:
+    // https://virtru.atlassian.net/browse/WS-2139
+    // https://virtru.atlassian.net/browse/WS-8613
+    const newTemplateHtml = templateHtml.replace(/({{\.}})(?!})/g, '{{{.}}}');
+
+    return templateService.render(newTemplateHtml, templateData);
 };
 
 
