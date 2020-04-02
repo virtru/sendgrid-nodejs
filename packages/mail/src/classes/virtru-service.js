@@ -87,9 +87,10 @@ const encryptEmail = async (owner, subject, recipients, message, attachments) =>
         connectOptions
     );
 
-    const template = await templateService.fetch(templateUri);
+    const templateData = await templateService.fetch(templateUri);
+    const templateHtml = templateData && templateData.templateHtml;
 
-    return buildSecureWrapper(result, policyOptions, template);
+    return buildSecureWrapper(result, policyOptions, templateHtml);
     // });
 };
 
