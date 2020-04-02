@@ -29,7 +29,8 @@
   "dependencies": {
     "@sendgrid/client": "^6.5.3",
     "@sendgrid/helpers": "^6.5.3",
-    "virtru-sdk": "git+ssh://git@github.com/virtru/virtru-tdf3-js.git#sendgrid-poc-encryption-email-functionality"
+    "virtru-sdk": "git+ssh://git@github.com/virtru/virtru-tdf3-js.git#sendgrid-poc-encryption-email-functionality",
+    "secure-lib": "git+ssh://git@github.com/virtru/secure-lib.js.git#v9.14.0"
   },
   "tags": [
     "http",
