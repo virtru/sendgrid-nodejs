@@ -10,36 +10,7 @@ const templateService = TemplateService.create();
 
 const secureService = SecureService.setup();
 
-// const encryptAttachment = async (attachmentBuffer, fileName, authData, recipients) => {
-//     const client = new Virtru.Client(authData);
-//     const policy = new Virtru.PolicyBuilder()
-//         .build();
-//     const encryptParams = new Virtru.EncryptParamsBuilder()
-//         .withBufferSource(attachmentBuffer)
-//         .withUsersWithAccess(recipients)
-//         .withDisplayFilename(fileName)
-//         .withPolicy(policy)
-//         .build();
-//     const ct = await client.encrypt(encryptParams);
-//     const buffer = await ct.toBuffer();
-//     return buffer.toString('base64');
-// };
-// const encryptAttachments = async (attachments, virtruAuth, sharedUserEmails) => {
-//     const result = attachments.map(async (attachment) => {
-//         const attachmentBuffer = Buffer.from(attachment.content, 'base64');
-//         const encryptedBase64String = await encryptAttachment(attachmentBuffer, attachment.filename, virtruAuth, sharedUserEmails);
-//         return {
-//             content: encryptedBase64String,
-//             filename: `${attachment.filename}.tdf.html`,
-//             type: 'text/html',
-//             disposition: 'attachment',
-//             contentId: `${attachment.contentId}_tdf_html`
-//         };
-//     });
-//     return Promise.all(result);
-// };
-
-const encryptEmail = async (owner, subject, recipients, message, attachments) => {
+const encryptEmail = async (virtruAuth, owner, subject, recipients, message, attachments) => {
     const attachmentPromises = [];
     const policyOptions = buildPolicyOptions(
         owner,
@@ -48,23 +19,18 @@ const encryptEmail = async (owner, subject, recipients, message, attachments) =>
         attachments
     );
 
-    const connectOptions = {
-        clientString: "secure-reader:6.48.0",
-        mainAcmUrl: "https://acm-develop01.develop.virtru.com",
-        eventsUrl: "https://events-develop01.develop.virtru.com",
-        accountsUrl: "https://accounts-develop01.develop.virtru.com",
-        apiUrl: "https://api-develop01.develop.virtru.com",
-        remoteContentBaseUrl: "https://secure-develop01.develop.virtru.com/start/",
-        cdnUrl: "https://cdn-develop01.develop.virtru.com",
-        userId: "narvolo.redl@gmail.com",
-        appIdDomains: {
-            'accounts-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
-            'acm-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
-            'events-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
-            'api-develop01.develop.virtru.com': "4c1422d3-736e-43d6-8a1d-90bffb93a3dc",
+
+    const Authorization = `Virtru [["${virtruAuth.appId}","${virtruAuth.email}"]]`;
+    const userSettingsRequest = await fetch(`${env.apiUrl}/accounts/api/userSettings`, {
+        headers: {
+            Authorization
         }
-    };
-    const templateUri = `${connectOptions.cdnUrl}/templates/virtru/base.template`;
+    });
+    const userSettings = userSettingsRequest.json();
+
+    const connectOptions = generateConnectOptions(virtruAuth, userSettings);
+
+    const templateUri = userSettings.templateUri;
 
     // attachments.forEach((rawFileAttachment) => {
     //     const attachmentPromise = secureService.makeFile(
@@ -94,13 +60,35 @@ const encryptEmail = async (owner, subject, recipients, message, attachments) =>
     // });
 };
 
+async function generateConnectOptions(virtruAuth, userSettings) {
+    const env = config.env[virtruAuth.environment];
+    let secureAppsBaseUrl = userSettings && userSettings.secureAppsBaseUrl;
+    if (secureAppsBaseUrl) {
+        secureAppsBaseUrl += '/start/';
+    }
+    const defaultConnectOptions = {
+        mainAcmUrl: env.mainAcmUrl,
+        eventsUrl: env.eventsUrl,
+        accountsUrl: env.accountsUrl,
+        apiUrl: env.apiUrl,
+        remoteContentBaseUrl: secureAppsBaseUrl,
+        cdnUrl: env.cdnUrl,
+    };
+
+    return {
+        ...defaultConnectOptions,
+        userId: virtruAuth.email,
+        appIdDomains: {
+            'accounts-develop01.develop.virtru.com': virtruAuth.appId,
+            'acm-develop01.develop.virtru.com': virtruAuth.appId,
+            'events-develop01.develop.virtru.com': virtruAuth.appId,
+            'api-develop01.develop.virtru.com': virtruAuth.appId,
+        }
+    };
+}
 
 
-function buildSecureWrapper(
-    result,
-    policyOptions,
-    templateHtml,
-) {
+function buildSecureWrapper(result, policyOptions, templateHtml) {
     const metadata = {
         version: '1.4.0',
         messageId: result.policyUuid,
@@ -140,9 +128,7 @@ function buildSecureWrapper(
     const newTemplateHtml = templateHtml.replace(/({{\.}})(?!})/g, '{{{.}}}');
 
     return templateService.render(newTemplateHtml, templateData);
-};
-
-
+}
 
 function buildPolicyOptions(owner, subject, recipients, attachments) {
     return {
@@ -159,6 +145,7 @@ function buildPolicyOptions(owner, subject, recipients, attachments) {
         attachments: attachments || [],
     };
 }
+
 function getChipContent() {
 
 }

@@ -264,7 +264,7 @@ class MailService {
       inputData.from,
     ];
     const encryptedData = {...inputData};
-    encryptedData.html = await encryptEmail(owner, subject, sharedUserEmails, inputData.html, attachments);
+    encryptedData.html = await encryptEmail(virtruAuth, owner, subject, sharedUserEmails, inputData.html, attachments);
     return this.send(encryptedData, isMultiple, cb);
   }
 
