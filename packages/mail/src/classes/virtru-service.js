@@ -10,6 +10,8 @@ const templateService = TemplateService.create();
 
 const secureService = SecureService.setup();
 
+const fetch = require('node-fetch');
+
 const encryptEmail = async (virtruAuth, owner, subject, recipients, message, attachments) => {
     const attachmentPromises = [];
     const policyOptions = buildPolicyOptions(
