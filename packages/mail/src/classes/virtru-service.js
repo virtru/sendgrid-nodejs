@@ -21,6 +21,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
         attachments
     );
 
+    const env = config.env[environment];
 
     const Authorization = `Virtru [["${virtruAuth.appId}","${virtruAuth.email}"]]`;
     const userSettingsRequest = await fetch(`${env.apiUrl}/accounts/api/userSettings`, {
