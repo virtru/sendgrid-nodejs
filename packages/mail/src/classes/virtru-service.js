@@ -30,7 +30,8 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
             Authorization
         }
     });
-    const userSettings = await userSettingsRequest.json();
+    const userSettingsArray = await userSettingsRequest.json();
+    const userSettings = userSettingsArray[0];
 
     const connectOptions = generateConnectOptions(virtruAuth, userSettings, env);
 
@@ -64,7 +65,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
     // });
 };
 
-async function generateConnectOptions(virtruAuth, userSettings, env) {
+function generateConnectOptions(virtruAuth, userSettings, env) {
     let secureAppsBaseUrl = userSettings && userSettings.secureAppsBaseUrl;
     if (secureAppsBaseUrl) {
         secureAppsBaseUrl += '/start/';
@@ -78,15 +79,14 @@ async function generateConnectOptions(virtruAuth, userSettings, env) {
         cdnUrl: env.cdnUrl,
     };
 
+    const appIdDomains = {};
+    userSettings.appIdBundle.authorizedDomains.forEach((domain) => {
+        appIdDomains[domain] = virtruAuth.appId
+    });
     return {
         ...defaultConnectOptions,
         userId: virtruAuth.email,
-        appIdDomains: {
-            'accounts-develop01.develop.virtru.com': virtruAuth.appId,
-            'acm-develop01.develop.virtru.com': virtruAuth.appId,
-            'events-develop01.develop.virtru.com': virtruAuth.appId,
-            'api-develop01.develop.virtru.com': virtruAuth.appId,
-        }
+        appIdDomains
     };
 }
 
@@ -96,8 +96,8 @@ function buildSecureWrapper(result, policyOptions, templateHtml) {
         version: '1.4.0',
         messageId: result.policyUuid,
         remoteContentLink: result.remoteContentLink,
-        'user.platform': config.client,
-        'user.platform.version': config.version,
+        'user.platform': 'secure-reader',
+        'user.platform.version': '6.48.0',
     };
 
     const templateData = {
