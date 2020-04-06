@@ -21,6 +21,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
         attachments
     );
 
+    const environment = virtruAuth.environment || 'production';
     const env = config.env[environment];
 
     const Authorization = `Virtru [["${virtruAuth.appId}","${virtruAuth.email}"]]`;
@@ -31,7 +32,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
     });
     const userSettings = await userSettingsRequest.json();
 
-    const connectOptions = generateConnectOptions(virtruAuth, userSettings);
+    const connectOptions = generateConnectOptions(virtruAuth, userSettings, env);
 
     const templateUri = userSettings.templateUri;
 
@@ -63,9 +64,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
     // });
 };
 
-async function generateConnectOptions(virtruAuth, userSettings) {
-    const environment = virtruAuth.environment || 'production';
-    const env = config.env[environment];
+async function generateConnectOptions(virtruAuth, userSettings, env) {
     let secureAppsBaseUrl = userSettings && userSettings.secureAppsBaseUrl;
     if (secureAppsBaseUrl) {
         secureAppsBaseUrl += '/start/';
