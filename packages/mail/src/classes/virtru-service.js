@@ -26,7 +26,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
             Authorization
         }
     });
-    const userSettings = userSettingsRequest.json();
+    const userSettings = await userSettingsRequest.json();
 
     const connectOptions = generateConnectOptions(virtruAuth, userSettings);
 
@@ -61,7 +61,8 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
 };
 
 async function generateConnectOptions(virtruAuth, userSettings) {
-    const env = config.env[virtruAuth.environment];
+    const environment = virtruAuth.environment || 'production';
+    const env = config.env[environment];
     let secureAppsBaseUrl = userSettings && userSettings.secureAppsBaseUrl;
     if (secureAppsBaseUrl) {
         secureAppsBaseUrl += '/start/';
@@ -99,16 +100,12 @@ function buildSecureWrapper(result, policyOptions, templateHtml) {
 
     const templateData = {
         secureMessage: base64.encode(result.tdf.asXml()),
-
-        // TODO: messageId will need to be calculated once we support chains here
         messageId: 0,
         previousMessages: undefined,
         messageUUID: result.policyUuid,
         metadata: base64.encode(JSON.stringify(metadata)),
         microTdfLink: result.remoteContentLink,
-        senderName: policyOptions.ownerDisplayName
-            ? policyOptions.ownerDisplayName
-            : policyOptions.owner,
+        senderName: policyOptions.owner,
         senderAddress: policyOptions.owner,
         mobileLink: `virtru://message?uuid=${result.policyUuid}`,
         welcomeMessage: policyOptions.welcomeMessage
@@ -118,13 +115,6 @@ function buildSecureWrapper(result, policyOptions, templateHtml) {
             : undefined,
         emailSubject: policyOptions.displayName,
     };
-
-    // Work-around for making double-braces into triple-braces.
-    // This makes Mustache unescape URL characters in the Unlock Button Link.
-    // This seems needed to prevent Yahoo from not printing the href.
-    // See JIRA Tickets:
-    // https://virtru.atlassian.net/browse/WS-2139
-    // https://virtru.atlassian.net/browse/WS-8613
     const newTemplateHtml = templateHtml.replace(/({{\.}})(?!})/g, '{{{.}}}');
 
     return templateService.render(newTemplateHtml, templateData);
