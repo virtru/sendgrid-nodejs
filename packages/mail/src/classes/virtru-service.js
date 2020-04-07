@@ -50,13 +50,12 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
             connectOptions,
             type,
         );
-        attachmentPromise.then((fileAttachment, attachment) => {
-            console.log(fileAttachment, attachment);
+        attachmentPromise.then((attachment) => {
             policyOptions.attachments.push(attachment.tdo.asXml());
             policyOptions.children.push(attachment.policyUuid);
             message += getChipContent(
                 attachment.tdo.payload.filename,
-                fileAttachment.size,
+                '1mb',
                 attachment.tdo.payload.mediaType,
                 attachment.tdo.id,
                 attachment.policyUuid);
