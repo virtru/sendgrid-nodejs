@@ -5,8 +5,7 @@
  */
 const {Client} = require('@sendgrid/client');
 const {classes: {Mail}} = require('@sendgrid/helpers');
-// const {encryptEmail} = require('./virtru-service');
-const Virtru = require('virtru-sdk/dist/virtru-sdk.cjs');
+const {encryptEmail} = require('./virtru-service');
 
 /**
  * Mail service class
@@ -219,32 +218,14 @@ class MailService {
    * For encryption provide Virtru Auth data in a key 'virtruAuth'
    * data.virtruAuth = {
    *     appId: APP_ID,
-   *     'email': EMAIL,
-   * } || {
-   *     'email': EMAIL,
-   *     'hmacToken': HMAC_TOKEN,
-   *     'hmacSecret': HMAC_SECRET,
+   *     email: EMAIL,
+   *     environment: 'develop01' | By default 'production
    * }
    * @param data
    * @param isMultiple
    * @param cb
    * @returns {*|*}
    */
-
-  async sendEncrypted (data, isMultiple = false, cb) {
-    const inputData = {...data};
-    const { virtruAuth } = inputData;
-    delete inputData.virtruAuth;
-    const { attachments } = inputData;
-    delete inputData.attachments;
-    const sharedUserEmails = [
-      inputData.to,
-      inputData.from,
-    ];
-    const encryptedData = {...inputData};
-    encryptedData.attachments = await encryptAttachments(attachments, virtruAuth, sharedUserEmails);
-    return this.send(encryptedData, isMultiple, cb);
-  }
 
   async sendEncryptedEmail (data, isMultiple = false, cb) {
     const inputData = {...data};
@@ -257,8 +238,7 @@ class MailService {
       inputData.from,
     ];
     const encryptedData = {...inputData};
-    const client = new Virtru.Client(virtruAuth);
-    encryptedData.html = await client.encryptEmail(virtruAuth, owner, subject, sharedUserEmails, inputData.html, attachments);
+    encryptedData.html = await encryptEmail(virtruAuth, owner, subject, sharedUserEmails, inputData.html, attachments);
     return this.send(encryptedData, isMultiple, cb);
   }
 
