@@ -14,6 +14,8 @@ const fetch = require('node-fetch');
 
 const { Binary } = require('binary');
 
+const $ = require('jquery');
+
 const encryptEmail = async (virtruAuth, owner, subject, recipients, message, attachments) => {
     const attachmentPromises = [];
     const policyOptions = buildPolicyOptions(
