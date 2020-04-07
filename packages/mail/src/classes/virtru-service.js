@@ -14,7 +14,14 @@ const fetch = require('node-fetch');
 
 const { Binary } = require('binary');
 
-const $ = require('jquery');
+const jsdom = require("jsdom");
+
+const { JSDOM } = jsdom;
+
+const { window } = new JSDOM();
+
+const $ = require('jquery')(window);
+
 
 const encryptEmail = async (virtruAuth, owner, subject, recipients, message, attachments) => {
     const attachmentPromises = [];
