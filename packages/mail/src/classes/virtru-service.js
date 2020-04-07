@@ -14,7 +14,7 @@ const fetch = require('node-fetch');
 
 const { Binary } = require('binary');
 
-const HTMLParser = require('node-html-parser');
+const jsdom = require('jsdom');
 
 
 const encryptEmail = async (virtruAuth, owner, subject, recipients, message, attachments) => {
@@ -162,7 +162,14 @@ function getChipContent(filename, filesize, mediaType, tdoid, policyuuid) {
         policyuuid: policyuuid,
     };
     const chip = templateService.renderAttachmentChip(templateData);
-    const $chip = HTMLParser.parse(chip);
+    return parseHTML(chip);
+}
+
+function parseHTML(chip) {
+    const {JSDOM} = jsdom;
+    const dom = new JSDOM(html);
+    const $ = (require('jquery'))(dom.window);
+    const $chip = $(chip);
     const icon = $chip.find('.virtru-attachment-shield');
 
     $chip.find('.virtru-attachment-file-size').text(`${filesize}`);
