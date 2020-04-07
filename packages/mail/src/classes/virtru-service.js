@@ -37,31 +37,38 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
 
     const templateUri = userSettings.templateUri;
 
-    // attachments.forEach((rawFileAttachment) => {
-    //     const attachmentPromise = secureService.makeFile(
+    attachments.forEach((attachment) => {
+        const { filename, content, type } = attachment;
+        const attachmentBuffer = Buffer.from(content, 'base64');
+        const binary = Binary.fromBuffer(attachmentBuffer);
+        const attachmentPromise = secureService.makeFile(
+            binary,
+            filename,
+            policyOptions,
+            connectOptions,
+            type,
+        );
+        attachmentPromise.then((fileAttachment, attachment) => {
+            console.log(fileAttachment, attachment);
+            // policyOptions.attachments.push(attachment.tdo.asXml());
+            // policyOptions.children.push(attachment.policyUuid);
+            // message += getChipContent(attachment, fileAttachment.size);
+        });
+        attachmentPromises.push(attachmentPromise);
+    });
+    return 'Success';
+
+    // return Promise.all(attachmentPromises).then(async () => {
+    //     const result = await secureService.makeMessage(
+    //         message,
+    //         policyOptions,
+    //         connectOptions
+    //     );
     //
-    //     );
-    //     attachmentPromise.then(
-    //         function (fileAttachment, attachment) {
-    //             policyOptions.attachments.push(attachment.tdo.asXml());
-    //             policyOptions.children.push(attachment.policyUuid);
-    //             message += getChipContent(attachment, fileAttachment.size);
-    //         }.bind(this, rawFileAttachment),
-    //     );
-    //     attachmentPromises.push(attachmentPromise);
-    // });
-
-    // return Promise.all(attachmentPromises).then(() => {
-    const result = await secureService.makeMessage(
-        message,
-        policyOptions,
-        connectOptions
-    );
-
-    const templateData = await templateService.fetch(templateUri);
-    const templateHtml = templateData && templateData.templateHtml;
-
-    return buildSecureWrapper(result, policyOptions, templateHtml);
+    //     const templateData = await templateService.fetch(templateUri);
+    //     const templateHtml = templateData && templateData.templateHtml;
+    //
+    //     return buildSecureWrapper(result, policyOptions, templateHtml);
     // });
 };
 
