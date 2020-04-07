@@ -14,8 +14,6 @@ const fetch = require('node-fetch');
 
 const { Binary } = require('binary');
 
-const jsdom = require('jsdom');
-
 
 const encryptEmail = async (virtruAuth, owner, subject, recipients, message, attachments) => {
     const attachmentPromises = [];
@@ -162,22 +160,15 @@ function getChipContent(filename, filesize, mediaType, tdoid, policyuuid) {
         policyuuid: policyuuid,
     };
     const chip = templateService.renderAttachmentChip(templateData);
-    return parseHTML(chip);
-}
-
-function parseHTML(chip) {
-    const {JSDOM} = jsdom;
-    const dom = new JSDOM(html);
-    const $ = (require('jquery'))(dom.window);
-    const $chip = $(chip);
-    const icon = $chip.find('.virtru-attachment-shield');
-
-    $chip.find('.virtru-attachment-file-size').text(`${filesize}`);
-    $chip.addClass('pdf');
-    $chip.find('.virtru-attachment-delete').text('Delete');
-    icon.css('background-image', `url("https://s3.amazonaws.com/files.virtru.com/file-images/pdf_16.png")`);
-    $chip.attr('class', 'virtru-attachment');
-    return $chip;
+    // const $chip = $(chip);
+    // const icon = $chip.find('.virtru-attachment-shield');
+    //
+    // $chip.find('.virtru-attachment-file-size').text(`${filesize}`);
+    // $chip.addClass('pdf');
+    // $chip.find('.virtru-attachment-delete').text('Delete');
+    // icon.css('background-image', `url("https://s3.amazonaws.com/files.virtru.com/file-images/pdf_16.png")`);
+    // $chip.attr('class', 'virtru-attachment');
+    return chip;
 }
 
 module.exports = {
