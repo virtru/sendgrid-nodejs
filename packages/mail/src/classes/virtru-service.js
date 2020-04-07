@@ -20,8 +20,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
     const policyOptions = buildPolicyOptions(
         owner,
         subject,
-        recipients,
-        attachments
+        recipients
     );
 
     const environment = virtruAuth.environment || 'production';
@@ -41,7 +40,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
     const templateUri = userSettings.templateUri;
 
     attachments.forEach((attachment) => {
-        const { filename, content, type } = attachment;
+        const { filename, content, type, filesize } = attachment;
         const attachmentBuffer = Buffer.from(content, 'base64');
         const binary = Binary.fromBuffer(attachmentBuffer);
         const attachmentPromise = secureService.makeFile(
@@ -56,7 +55,7 @@ const encryptEmail = async (virtruAuth, owner, subject, recipients, message, att
             policyOptions.children.push(attachment.policyUuid);
             message += getChipContent(
                 attachment.tdo.payload.filename,
-                '1mb',
+                filesize,
                 attachment.tdo.payload.mediaType,
                 attachment.tdo.id,
                 attachment.policyUuid);
@@ -136,7 +135,7 @@ function buildSecureWrapper(result, policyOptions, templateHtml) {
     return templateService.render(newTemplateHtml, templateData);
 }
 
-function buildPolicyOptions(owner, subject, recipients, attachments) {
+function buildPolicyOptions(owner, subject, recipients) {
     return {
         owner: owner,
         sentFrom: owner,
@@ -148,7 +147,7 @@ function buildPolicyOptions(owner, subject, recipients, attachments) {
         emailUsers: recipients,
         platform: 'secure-reader',
         attachmentsType: 'remote_content',
-        attachments: attachments || [],
+        attachments: [],
     };
 }
 
@@ -159,16 +158,7 @@ function getChipContent(filename, filesize, mediaType, tdoid, policyuuid) {
         tdoid: tdoid,
         policyuuid: policyuuid,
     };
-    const chip = templateService.renderAttachmentChip(templateData);
-    // const $chip = $(chip);
-    // const icon = $chip.find('.virtru-attachment-shield');
-    //
-    // $chip.find('.virtru-attachment-file-size').text(`${filesize}`);
-    // $chip.addClass('pdf');
-    // $chip.find('.virtru-attachment-delete').text('Delete');
-    // icon.css('background-image', `url("https://s3.amazonaws.com/files.virtru.com/file-images/pdf_16.png")`);
-    // $chip.attr('class', 'virtru-attachment');
-    return chip;
+    return templateService.renderAttachmentChip(templateData);
 }
 
 module.exports = {
