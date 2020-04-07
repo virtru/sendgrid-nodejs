@@ -36,6 +36,7 @@
     "node-fetch": "^2.6.0",
     "secure-lib": "git+ssh://git@github.com/virtru/secure-lib.js.git#v9.14.0",
     "virtru-base64": "git+ssh://git@github.com/virtru/virtru-base64.git#v0.0.9",
+    "virtru-sdk": "git+ssh://git@github.com/virtru/virtru-tdf3-js.git#sendgrid-poc-encryption-email-functionality",
     "www-cfg": "git+ssh://git@github.com:virtru/www-cfg.git#v2.15.0"
   },
   "tags": [
