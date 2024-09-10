@@ -4,8 +4,8 @@
   "description": "A containter to capture webhook data from Twilio SendGrid inbound parse",
   "main": "app.js",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "body-parser": "^1.20.3",
+    "express": "^4.20.0",
     "express-formidable": "^1.0.0"
   },
   "devDependencies": {},
